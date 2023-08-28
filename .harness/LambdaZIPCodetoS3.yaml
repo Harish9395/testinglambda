@@ -1,0 +1,15 @@
+inputSet:
+  name: LambdaZIPCodetoS3
+  identifier: LambdaZIPCodetoS3
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: lambdaCodeZIPS3
+    properties:
+      ci:
+        codebase:
+          build:
+            type: tag
+            spec:
+              tag: <+trigger.tag>
+  object Object: pipeline.properties.ci.codebase
