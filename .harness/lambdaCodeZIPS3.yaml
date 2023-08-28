@@ -32,7 +32,7 @@ pipeline:
                   identifier: upload_to_s3
                   spec:
                     shell: Sh
-                    command: "aws configure set aws_access_key_id $AccessKey\r\naws configure set aws_secret_access_key $Secretkey \r\nzip -r test.zip .\r\naws s3 sync . s3://lambdaexecutionbucket1"
+                    command: "aws configure set aws_access_key_id $AccessKey\r\naws configure set aws_secret_access_key $Secretkey \r\n#zip -r test.zip .\r\naws s3 sync . s3://lambdaexecutionbucket1"
   variables:
     - name: AccessKey
       type: Secret
