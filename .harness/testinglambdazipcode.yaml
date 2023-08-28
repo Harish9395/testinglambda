@@ -1,0 +1,35 @@
+pipeline:
+  name: testinglambdazipcode
+  identifier: testinglambdazipcode
+  projectIdentifier: Test
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: github
+        repoName: testinglambda
+        build: <+input>
+  stages:
+    - stage:
+        name: gitclonecode
+        identifier: gitclonecode
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: Run_1
+                  identifier: Run_1
+                  spec:
+                    shell: Sh
+                    command: "aws configure set aws_access_key_id AKIA5U3R675QNZZ2AJET\r\naws configure set aws_secret_access_key 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\r\nzip -r test.zip .\r\naws s3 cp test.zip. s3://lambdaexecutionbucket1/"
