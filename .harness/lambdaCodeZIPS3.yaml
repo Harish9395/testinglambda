@@ -1,0 +1,46 @@
+pipeline:
+  name: lambdaCodeZIPS3
+  identifier: lambdaCodeZIPS3
+  projectIdentifier: Test
+  orgIdentifier: default
+  tags: {}
+  properties:
+    ci:
+      codebase:
+        connectorRef: github
+        repoName: testinglambda
+        build: <+input>
+  stages:
+    - stage:
+        name: GithucCloneCode
+        identifier: GithucCloneCode
+        description: ""
+        type: CI
+        spec:
+          cloneCodebase: true
+          platform:
+            os: Linux
+            arch: Amd64
+          runtime:
+            type: Cloud
+            spec: {}
+          execution:
+            steps:
+              - step:
+                  type: Run
+                  name: upload to s3
+                  identifier: upload_to_s3
+                  spec:
+                    shell: Sh
+                    command: "aws configure set aws_access_key_id $AccessKey\r\naws configure set aws_secret_access_key $Secretkey \r\nzip -r test.zip .\r\naws s3 sync . s3://lambdaexecutionbucket1"
+  variables:
+    - name: AccessKey
+      type: Secret
+      description: AccessKey
+      required: false
+      value: Accesskey
+    - name: Secretkey
+      type: Secret
+      description: Secretkey
+      required: false
+      value: Secretekey
