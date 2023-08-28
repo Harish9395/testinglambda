@@ -29,7 +29,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: "pwd \r\nls\r\nrm -f testinglambda\r\n"
+                        script: "pwd \r\nls\r\nrm -rf testinglambda\r\n"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
