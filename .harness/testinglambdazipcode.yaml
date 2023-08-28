@@ -32,4 +32,4 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: "aws configure set aws_access_key_id AKIA5U3R675QNZZ2AJET\r\naws configure set aws_secret_access_key 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\r\nzip -r test.zip . -i .\r\naws s3 cp test.zip. s3://lambdaexecutionbucket1/"
+                    command: "aws configure set aws_access_key_id AKIA5U3R675QNZZ2AJET\r\naws configure set aws_secret_access_key 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\r\nzip -r . test.zip -i .\r\naws s3 cp test.zip. s3://lambdaexecutionbucket1/"
