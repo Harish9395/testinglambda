@@ -12,24 +12,25 @@ pipeline:
         build: <+input>
   stages:
     - stage:
-        name: GitClonecode
-        identifier: GitClonecode
+        name: gitlcone
+        identifier: gitlcone
         description: ""
-        type: CI
+        type: Custom
         spec:
-          cloneCodebase: true
-          platform:
-            os: Linux
-            arch: Amd64
-          runtime:
-            type: Cloud
-            spec: {}
           execution:
             steps:
               - step:
-                  type: Run
-                  name: Run_1
-                  identifier: Run_1
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
                   spec:
-                    shell: Sh
-                    command: "yum install zip -y \r\nzip -r test.zip ."
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: "git clone https://github.com/Harish9395/testinglambda.git\r\nzip -r test.zip test_index.js"
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
