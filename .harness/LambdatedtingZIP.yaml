@@ -29,7 +29,7 @@ pipeline:
                     source:
                       type: Inline
                       spec:
-                        script: "git clone https://github.com/Harish9395/testinglambda.git\r\nzip -r test.zip test_index.js"
+                        script: "git clone https://github.com/Harish9395/testinglambda.git\r\n"
                     environmentVariables: []
                     outputVariables: []
                   timeout: 10m
