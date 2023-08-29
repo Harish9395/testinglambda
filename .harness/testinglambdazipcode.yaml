@@ -32,7 +32,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: "zip -9 test.zip testinglambda\r\n "
+                    command: "zip -9 test.zip test_index.js\r\n "
               - step:
                   type: Run
                   name: Run_2
