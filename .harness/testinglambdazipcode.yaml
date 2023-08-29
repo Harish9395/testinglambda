@@ -32,7 +32,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: "cd testinglambda\r\nzip -r . test.zip \r\n"
+                    command: "pwd \r\nls\r\ncd testinglambda \r\nls\r\nzip -r . test.zip \r\n"
               - step:
                   type: Run
                   name: Run_2
