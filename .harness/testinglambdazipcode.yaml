@@ -32,7 +32,7 @@ pipeline:
                   identifier: Run_1
                   spec:
                     shell: Sh
-                    command: "pwd \r\nls\r\ncd ..\r\ncd /testinglambda \r\nls\r\nzip -r . test.zip \r\n"
+                    command: "ls \r\npwd \r\nmkdir Artifactory\r\ncp -r /harness/ /harness/Artifactory \r\nls -lsa \r\ncd /harness/Artifactory \r\nzipr -r test_index.js test.zip \r\nls -lsa "
               - step:
                   type: Run
                   name: Run_2
