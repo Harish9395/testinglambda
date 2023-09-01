@@ -1,0 +1,15 @@
+inputSet:
+  name: TestingTag
+  identifier: TestingTag
+  orgIdentifier: default
+  projectIdentifier: Test
+  pipeline:
+    identifier: testinglambdazipcode
+    properties:
+      ci:
+        codebase:
+          build:
+            type: tag
+            spec:
+              tag: <+trigger.tag>
+  object Object: pipeline.properties.ci.codebase
