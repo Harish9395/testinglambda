@@ -35,11 +35,11 @@ pipeline:
                     command: "zip -9 test.zip test_index.js\r\n "
               - step:
                   type: Run
-                  name: Run_2
+                  name: Upload Artifact to s3
                   identifier: Run_2
                   spec:
                     shell: Sh
-                    command: "aws configure set aws_access_key_id AKIA5U3R675QNZZ2AJET\r\naws configure set aws_secret_access_key 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\r\naws s3 cp test.zip s3://lambdaexecutionbucket1/"
+                    command: "aws configure set aws_access_key_id <+pipeline.variables.Accesskey>\r\naws configure set aws_secret_access_key <+pipeline.variables.Secretkey>\r\naws s3 cp test.zip s3://lambdaexecutionbucket1/"
               - step:
                   type: Run
                   name: "UpdateLambdaFucntion "
@@ -47,3 +47,14 @@ pipeline:
                   spec:
                     shell: Sh
                     command: aws lambda update-function-code --function-name lambdaexampletesting56789t --s3-bucket lambdaexecutionbucket1 --s3-key test.zip
+  variables:
+    - name: Accesskey
+      type: Secret
+      description: ""
+      required: false
+      value: Accesskey
+    - name: Secretkey
+      type: Secret
+      description: ""
+      required: false
+      value: Secretkey
