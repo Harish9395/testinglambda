@@ -46,7 +46,7 @@ pipeline:
                   identifier: UpdateLambdaFucntion
                   spec:
                     shell: Sh
-                    command: aws lambda update-function-code --function-name lambdaexampletesting56789t --s3-bucket lambdaexecutionbucket1 --s3-key test.zip
+                    command: "aws configure set aws_access_key_id <+pipeline.variables.Accesskey>\r\naws configure set aws_secret_access_key <+pipeline.variables.Secretkey>\r\naws lambda update-function-code --function-name lambdaexampletesting56789t --s3-bucket lambdaexecutionbucket1 --s3-key test.zip"
   variables:
     - name: Accesskey
       type: Secret
