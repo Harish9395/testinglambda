@@ -35,6 +35,8 @@ pipeline:
                     command: |-
                       echo "INFO: Compress file"
                       zip -r testinglambda /refdata.zip .
+                      ls
+
 
                        
               - step:
