@@ -34,9 +34,9 @@ pipeline:
                     shell: Sh
                     command: |-
                       echo "INFO: Compress file"
-                      zip -r testinglambda /refdata.zip .
+                      zip -r testinglambda/refdata.zip .
                       ls
-
+                      ls -al testinglambda/
 
                        
               - step:
